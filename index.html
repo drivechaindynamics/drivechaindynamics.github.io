@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Motorized Bikes & Custom Conversions
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+        <!--CSS-->
+        
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/animate.css">
+        <!--Google Fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+        
+        <style>
+            /* Right-side navigation styling */
+            .navbar-fixed-top {
+                position: fixed;
+                top: 0;
+                right: 0;
+                left: auto;
+                width: auto;
+                background: rgba(42, 42, 42, 0.95);
+                border: none;
+                border-radius: 0 0 0 15px;
+                box-shadow: -5px 5px 15px rgba(0,0,0,0.3);
+            }
+            
+            .navbar-nav {
+                margin: 0;
+                padding: 10px 20px;
+            }
+            
+            .navbar-nav > li {
+                display: block;
+                margin: 5px 0;
+            }
+            
+            .navbar-nav > li > a {
+                color: #FFD700 !important;
+                padding: 10px 15px;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+                text-align: center;
+                display: block;
+            }
+            
+            .navbar-nav > li > a:hover {
+                background: rgba(255, 215, 0, 0.2);
+                color: #FFF700 !important;
+            }
+            
+            .navbar-toggle {
+                border-color: #FFD700;
+                margin-right: 15px;
+            }
+            
+            .navbar-toggle .icon-bar {
+                background-color: #FFD700;
+            }
+            
+            /* Mobile Optimization */
+            @media (max-width: 767px) {
+                .navbar-fixed-top {
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    left: auto;
+                    width: 200px;
+                    z-index: 9999;
+                }
+                
+                .navbar-nav > li > a {
+                    padding: 12px 10px;
+                    font-size: 14px;
+                }
+                
+                /* Logo optimization for mobile */
+                .logo-container img {
+                    width: 100px !important;
+                    height: 100px !important;
+                    border-width: 2px !important;
+                }
+                
+                .logo-container {
+                    text-align: center !important;
+                    margin-bottom: 15px !important;
+                    margin-top: 10px !important;
+                }
+                
+                /* Header form mobile optimization */
+                .header-col {
+                    max-width: 100% !important;
+                    padding: 0 15px !important;
+                }
+                
+                .header-form {
+                    padding: 25px !important;
+                    margin: 0 !important;
+                }
+                
+                .header-form h2 {
+                    font-size: 1.8rem !important;
+                    margin-bottom: 20px !important;
+                }
+                
+                .form-control {
+                    height: 50px !important;
+                    font-size: 16px !important;
+                    padding: 12px !important;
+                    margin-bottom: 15px !important;
+                }
+                
+                .btn-primary {
+                    height: 55px !important;
+                    font-size: 16px !important;
+                    padding: 15px !important;
+                }
+                
+                /* Content spacing for mobile */
+                .container {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+                
+                /* Section headings mobile */
+                .section-title {
+                    font-size: 1.8rem !important;
+                }
+                
+                .under-heading {
+                    font-size: 1rem !important;
+                }
+                
+                /* Product cards mobile */
+                .product-card {
+                    margin-bottom: 20px !important;
+                    padding: 15px !important;
+                }
+                
+                .product-card h3 {
+                    font-size: 1.3rem !important;
+                }
+                
+                .price {
+                    font-size: 1.5rem !important;
+                }
+                
+                /* BYOB section mobile */
+                .byob-info, .conversion-calculator {
+                    margin-bottom: 30px !important;
+                }
+                
+                /* Contact form mobile */
+                .contact-us .form-control {
+                    margin-bottom: 15px !important;
+                }
+                
+                /* Footer mobile */
+                .footer-text {
+                    font-size: 12px !important;
+                    text-align: center !important;
+                    margin-bottom: 10px !important;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                /* Extra small mobile devices */
+                .navbar-fixed-top {
+                    width: 180px;
+                }
+                
+                .navbar-nav > li > a {
+                    padding: 10px 8px;
+                    font-size: 12px;
+                }
+                
+                .logo-container img {
+                    width: 80px !important;
+                    height: 80px !important;
+                }
+                
+                .header-form {
+                    padding: 20px !important;
+                }
+                
+                .header-form h2 {
+                    font-size: 1.5rem !important;
+                }
+                
+                .form-control {
+                    height: 45px !important;
+                    font-size: 14px !important;
+                }
+                
+                .btn-primary {
+                    height: 50px !important;
+                    font-size: 14px !important;
+                }
+                
+                .section-title {
+                    font-size: 1.5rem !important;
+                }
+                
+                .product-card h3 {
+                    font-size: 1.1rem !important;
+                }
+            }
+            
+            /* Touch targets optimization */
+            @media (pointer: coarse) {
+                .navbar-nav > li > a {
+                    min-height: 44px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                
+                .btn, button {
+                    min-height: 44px;
+                    padding: 12px 20px;
+                }
+                
+                .form-control {
+                    min-height: 44px;
+                }
+            }
+            
+            /* Prevent horizontal scroll on mobile */
+            body {
+                overflow-x: hidden;
+            }
+            
+            .container-fluid {
+                padding-left: 0;
+                padding-right: 0;
+            }
+            
+            /* Improve text readability on mobile */
+            @media (max-width: 767px) {
+                body {
+                    font-size: 16px;
+                    line-height: 1.5;
+                }
+                
+                p {
+                    font-size: 16px !important;
+                }
+                
+                /* Ensure minimum touch target sizes */
+                a, button, input, select, textarea {
+                    min-height: 44px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+       <header class="header" id="HOME">
+                 <!-- Navigation -->
+            
+            <nav class="navbar navbar-default navbar-fixed-top">
+              
+                
+                <div class="container">
+                  
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#loso-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="#">
+                          <!-- logo removed -->
+                        </a>
+                    </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="loso-navbar-collapse-1">
+                  <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#HOME" class="nav-item">HOME</a></li>
+                        <li><a href="#about" class="nav-item">ABOUT</a></li>
+                        <li><a href="#products" class="nav-item">PRODUCTS</a></li>
+                        <li><a href="#byob" class="nav-item" style="padding-top: 15px;">B.Y.O.B</a></li>
+                        <li><a href="#services" class="nav-item">SERVICES</a></li>
+                        <li><a href="#contact-us" class="nav-item">CONTACT</a></li>
+                        <li><a href="legal.html" class="nav-item">LEGAL</a></li>
+                  </ul>
+                 
+                 
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+</nav>
+          
+          
+          
+           <div class="header-overlay">
+               <div class="container">
+                   <div class="row">
+                    <div class="col-md-12">
+                        <div class="logo-container" style="text-align: left; margin-bottom: 30px; margin-top: 20px;">
+                            <img src="https://i.imgur.com/uo4C39Z.png" alt="Drivechain Dynamics Logo" style="width: 180px; height: 180px; border: 4px solid #FFD700; border-radius: 50%; background: rgba(255,215,0,0.15); padding: 8px; box-shadow: 0 0 20px rgba(255,215,0,0.3);">
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-12 text-center">
+                       <div class="header-col" style="display: inline-block; max-width: 600px; width: 100%; margin: 0 auto;">
+                        
+                         <form role="form" class="header-form" id="bikeRecommendationForm" style="background: rgba(255, 215, 0, 0.1); border: 2px solid #FFD700; border-radius: 15px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin: 0 auto;">
+                            <h2 style="color: #FFD700; font-size: 2.5rem; margin-bottom: 30px;">Find Your Perfect Bike</h2>
+                             <div class="form-group" style="margin-bottom: 25px;">
+                                 <input type="number" placeholder="Daily Mileage Needed (miles)" class="form-control input-3x" id="mileage" min="1" max="500" required style="height: 60px; font-size: 18px; border: 2px solid #FFD700; border-radius: 10px; padding: 15px;">
+                             </div>
+                             <div class="form-group" style="margin-bottom: 25px;">
+                                 <select class="form-control input-3x" id="height" required style="height: 60px; font-size: 18px; border: 2px solid #FFD700; border-radius: 10px; padding: 15px;">
+                                     <option value="">Select Your Height</option>
+                                     <option value="short">Under 5'6" (Short Frame)</option>
+                                     <option value="medium">5'6" - 6'0" (Medium Frame)</option>
+                                     <option value="tall">Over 6'0" (Tall Frame)</option>
+                                 </select>
+                             </div>
+                             <div class="form-group" style="margin-bottom: 30px;">
+                                 <select class="form-control input-3x" id="weight" required style="height: 60px; font-size: 18px; border: 2px solid #FFD700; border-radius: 10px; padding: 15px;">
+                                     <option value="">Select Your Weight Range</option>
+                                     <option value="light">Under 150 lbs</option>
+                                     <option value="medium">150 - 220 lbs</option>
+                                     <option value="heavy">Over 220 lbs</option>
+                                 </select>
+                             </div>
+                             <div class="form-group">
+                                 <button type="submit" class="btn btn-primary btn-3x" style="width: 100%; height: 70px; font-size: 20px; font-weight: bold; background: #FFD700; color: #2a2a2a; border: none; border-radius: 12px;">Get My Recommendation <span> <i class="fa fa-cog"></i> </span></button>
+                             </div>
+                             <div id="recommendationResult" style="margin-top: 20px; display: none;">
+                                 <div style="background: rgba(255, 215, 0, 0.1); border: 2px solid #FFD700; border-radius: 8px; padding: 15px;">
+                                    <h4 id="recommendedBike" style="color: #FFD700; font-weight: bold; margin-bottom: 10px;"></h4>
+                                    <p id="recommendationReason" style="color: #FFD700; font-weight: bold; font-size: 14px; margin-bottom: 15px;"></p>
+                                    <div id="bikeSpecs" style="color: #FFD700; font-weight: bold; font-size: 12px;"></div>
+                                    <a href="#products" class="btn btn-sm" style="background: #FFD700; color: #000000; margin-top: 10px; text-decoration: none;">View This Bike</a>
+                                </div>
+                             </div>
+                         </form>
+                       </div>
+                        
+                    </div>
+                </div>
+                </div>
+                   <div class="row"></div>
+               </div>
+           </div>
+       </header>
+       <!--Section About-->
+       <section id="about">
+          
+           <div class="section-about">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-12 wow bounceIn">
+                          <h2 class="section-title">About Drivechain Dynamics</h2>
+                          <p class="under-heading">Revolutionizing Personal Transportation</p>
+                      </div>
+                  </div>
+              </div>
+               <div class="section-wrapper">
+                   <div class="container">
+               <div class="row">
+                   <div class="col-md-4 wow bounceInDown">
+                       
+                           <a href="#"><i class="fa fa-cogs fa-5x square"></i></a>
+                           <h3 class="heading">Expert Engineering</h3>
+                           <p class="col-caption">Our team of skilled engineers specializes in seamlessly integrating high-performance gas engines into bicycle frames, ensuring optimal power delivery and safety.</p>
+                   </div>
+                       
+                    <div class="col-md-4 wow bounceInDown">
+                       
+                           <a href="#"><i class="fa fa-bicycle fa-5x"></i></a>
+                           <h3 class="heading">Quality Bikes</h3>
+                           <p class="col-caption">We offer premium gas-powered bikes built with durable frames and components, plus professional conversion services for your existing bicycle.</p>
+                           
+                    </div>
+                      
+                    <div class="col-md-4 wow bounceInRight">
+                       
+                           <a href="#"><i class="fa fa-wrench fa-5x"></i></a>
+                           <h3 class="heading">Custom Service</h3>
+                           <p class="col-caption">From consultation to installation, we provide comprehensive gas engine and electric motor conversion services with warranties and ongoing support for all our customers.</p>
+                       
+                    </div>
+               </div>
+           </div>
+               </div>
+           </div>
+           
+       </section><!--end of about section-->
+       <!--Products Section-->
+       <section class="performer-section" id="products">
+           <div class="performer wow flipInY">
+            <div class="performer-overlay">
+                      <div class="container">
+                          <div class="row">
+                              <div class="col-md-12">
+                                <h2 class="section-title">Our Motorized Bikes</h2>
+                                <p class="under-heading">Choose Your Power Level</p>
+                              </div>
+                          </div>
+                      </div>
+                       <div class="section-wrapper">
+                           <div class="container">
+                           <div class="row">
+                               <div class="col-md-4 wow bounceInLeft">
+                                   <div class="product-card">
+                                       <div class="product-icon">
+                                           <i class="fa fa-cog fa-4x"></i>
+                                       </div>
+                                       <h3>ECO Series</h3>
+                                       <h4>80cc Gas Engine</h4>
+                                       <p>Perfect for city commuting and casual rides. Up to 30 mph top speed with excellent fuel efficiency.</p>
+                                       <div class="price-tag">
+                                           <span class="price">$899</span>
+                                       </div>
+                                       <ul class="features">
+                                           <li><i class="fa fa-check"></i> 80cc 2-Stroke Engine</li>
+                                           <li><i class="fa fa-check"></i> 200 Mile Range</li>
+                                           <li><i class="fa fa-check"></i> 100+ MPG Efficiency</li>
+                                           <li><i class="fa fa-check"></i> 6-month Warranty</li>
+                                       </ul>
+                                       <a href="products.html" class="btn btn-primary">Configure Bike</a>
+                                   </div>
+                               </div>
+                               <div class="col-md-4 wow bounceInUp">
+                                   <div class="product-card featured">
+                                       <div class="product-icon">
+                                           <i class="fa fa-tachometer fa-4x"></i>
+                                       </div>
+                                       <h3>PERFORMANCE Series</h3>
+                                       <h4>100cc Gas Engine</h4>
+                                       <p>Maximum power for serious riders. Up to 45 mph with superior range and performance.</p>
+                                       <div class="price-tag">
+                                           <span class="price">$1,599</span>
+                                           <span class="popular">Most Popular</span>
+                                       </div>
+                                       <ul class="features">
+                                           <li><i class="fa fa-check"></i> 100cc 2-Stroke Engine</li>
+                                           <li><i class="fa fa-check"></i> 450 Mile Range</li>
+                                           <li><i class="fa fa-check"></i> 70+ MPG Efficiency</li>
+                                           <li><i class="fa fa-check"></i> 1-year Warranty</li>
+                                       </ul>
+                                       <a href="products.html" class="btn btn-primary">Configure Bike</a>
+                                   </div>
+                               </div>
+                               <div class="col-md-4 wow bounceInRight">
+                                   <div class="product-card">
+                                       <div class="product-icon">
+                                           <i class="fa fa-fire fa-4x"></i>
+                                       </div>
+                                       <h3>ELECTRIC Series</h3>
+                                       <h4>250W Electric Motor</h4>
+                                       <p>Silent and eco-friendly. Perfect for urban commuting with zero emissions.</p>
+                                       <div class="price-tag">
+                                           <span class="price">$1,299</span>
+                                       </div>
+                                       <ul class="features">
+                                           <li><i class="fa fa-check"></i> 250W Electric Motor</li>
+                                           <li><i class="fa fa-check"></i> 200 Mile Range</li>
+                                           <li><i class="fa fa-check"></i> Silent Operation</li>
+                                           <li><i class="fa fa-check"></i> 2-year Warranty</li>
+                                       </ul>
+                                       <a href="products.html" class="btn btn-primary">Configure Bike</a>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+               </div>
+               </div>
+       </section><!--End of Products-->
+       <!--Bring Your Own Bike Section-->
+       <section class="byob-section" id="byob">
+           <div class="container">
+               <div class="row">
+                   <div class="col-md-12 text-center wow bounceIn">
+                       <h2 class="section-title">Bring Your Own Bike</h2>
+                       <p class="under-heading">We'll Motorize Any Bicycle</p>
+                   </div>
+               </div>
+           </div>
+           <div class="section-wrapper">
+               <div class="container">
+                   <div class="row">
+                       <div class="col-md-6 wow bounceInLeft">
+                           <div class="byob-info">
+                               <h3>Conversion Process</h3>
+                               <div class="process-step">
+                                   <div class="step-number">1</div>
+                                   <div class="step-content">
+                                       <h4>Assessment</h4>
+                                       <p>We evaluate your bike's frame strength and recommend the best gas engine option for your needs.</p>
+                                   </div>
+                               </div>
+                               <div class="process-step">
+                                   <div class="step-number">2</div>
+                                   <div class="step-content">
+                                       <h4>Installation</h4>
+                                       <p>Professional installation of gas engine, fuel tank, drive system, and safety components.</p>
+                                   </div>
+                               </div>
+                               <div class="process-step">
+                                   <div class="step-number">3</div>
+                                   <div class="step-content">
+                                       <h4>Testing</h4>
+                                       <p>Comprehensive road testing, engine tuning, and safety inspection for optimal performance.</p>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-md-6 wow bounceInRight">
+                           <div class="conversion-calculator">
+                               <h3>Conversion Pricing Calculator</h3>
+                               <form class="calculator-form">
+                                   <div class="form-group">
+                                       <label>Engine Size:</label>
+                                       <select class="form-control" id="engineSize">
+                                           <option value="80cc">80cc Gas Engine - $599</option>
+                                           <option value="100cc">100cc Gas Engine - $899</option>
+                                           <option value="250w">250W Electric Motor - $799</option>
+                                       </select>
+                                   </div>
+                                   <div class="form-group">
+                                       <label>Fuel System:</label>
+                                       <select class="form-control" id="fuelSystem">
+                                           <option value="standard">Standard Tank (1.5L) - $149</option>
+                                           <option value="large">Large Tank (2.4L) - $199</option>
+                                           <option value="premium">Premium Tank (3.0L) - $249</option>
+                                       </select>
+                                   </div>
+                                   <div class="form-group">
+                                       <label>Installation Package:</label>
+                                       <select class="form-control" id="installation">
+                                           <option value="basic">Basic Install - $299</option>
+                                           <option value="premium">Premium Install + Tuning - $449</option>
+                                       </select>
+                                   </div>
+                                   <div class="total-price">
+                                       <h4>Total Estimate: <span id="totalPrice">$847</span></h4>
+                                       <p><small>*Final price may vary based on bike frame assessment</small></p>
+                                   </div>
+                                   <button type="button" class="btn btn-primary btn-block">Schedule Consultation</button>
+                               </form>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </section><!--End of BYOB-->
+       
+       <section class="why-us" id="services">
+            <div class="section-timeline">
+                <div class="container">
+                    <h2 class="heading">Our<span style="color: #FFD700; font-weight: bold;"> Services</span></h2>
+                    <p class="lead under-heading text-center">Complete Motorization Solutions</p>
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-badge"><i class="fa fa-wrench"></i></div>
+                            <div class="timeline-panal wow bounceIn">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">Professional <span class="blue-underline"> Installation</span> </h4>
+                                    <p><small class="text-muted"><i class="fa fa-clock-o"></i> Expert technicians </small></p>
+                                </div>
+                                <p>Our certified technicians handle every aspect of your bike's gas engine or electric motor conversion with precision and care. From initial assessment to final testing, we ensure your conversion meets the highest quality standards.</p>
+                            </div><!--end of timeline panel-->
+                        </li>
+                        
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge"><i class="fa fa-shield"></i></div>
+                            <div class="timeline-panal  wow bounceIn">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title"><span class="blue-underline">Warranty</span> Protection</h4>
+                                    <p><small class="text-muted"><i class="fa fa-clock-o" aria-hidden="true"></i> Comprehensive coverage </small></p>
+                                </div>
+                                <p>All our conversions and gas-powered bikes come with comprehensive warranty coverage. We stand behind our work with parts and labor warranties ranging from 6 months to 2 years depending on your package.</p>
+                            </div><!--end of timeline panel-->
+                        </li>
+                        
+                        <li>
+                            <div class="timeline-badge"><i class="fa fa-phone"></i></div>
+                            <div class="timeline-panal wow bounceIn">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title"><span class="blue-underline">Ongoing</span> Support</h4>
+                                    <p><small class="text-muted"><i class="fa fa-clock-o" aria-hidden="true"></i> Always available </small></p>
+                                </div>
+                                <p>Our relationship doesn't end at installation. We provide ongoing support, maintenance services, and upgrades to keep your gas-powered or electric bike running at peak performance for years to come.</p>
+                            </div><!--end of timeline panel-->
+                        </li>
+                    </ul>
+                    
+                    
+                </div>
+            </div>
+        </section><!--end of timeline-->
+        <section id="numbers">
+            <div class="numbers-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="section-title">Drivechain Dynamics Stats</h2>
+                            <p class="under-heading">Our Growing Success</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="num-data block-inline">
+                                    <i class="fa fa-fire fa-5x"></i>
+                                    <div class="counter">3</div>
+                                    <p>Gas Conversions</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="num-data block-inline">
+                                    <i class="fa fa-bolt fa-5x"></i>
+                                    <div class="counter">6</div>
+                                    <p>ELECTRIC CONVERSIONS</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="num-data block-inline">
+                                    <i class="fa fa-cog fa-5x"></i>
+                                    <div class="counter">3</div>
+                                    <p>Motor Options</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="num-data block-inline">
+                                    <i class="fa fa-star fa-5x"></i>
+                                    <div class="counter">24</div>
+                                    <p>Months Warranty</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact-us">
+            <div class="contact-us">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 wow bounceInDown">
+                            <h2 class="section-title">Contact Drivechain Dynamics</h2>
+                            <p class="under-heading">Get Started Today</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-wrapper">
+                    <div class="container">
+                        <form role="form">
+                            <div class="row">
+                            <div class="col-md-6 wow bounceInLeft">
+                                
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Your Name" class="form-control input-lg">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Your E - Mail" class="form-control input-lg">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Phone Number" class="form-control input-lg">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Subject" class="form-control input-lg">
+                                    </div>
+                                
+                            </div>
+                            <div class="col-md-6 wow bounceInRight">
+                               <div class="form-group">
+                                <textarea placeholder="Your Message" class="form-control "></textarea>
+                               </div>
+                               <button class="btn btn-primary btn-block input-lg">Contact us</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="social-icons wow slideInDown">
+                                    <ul class="list-unstyled">
+                                        <li><a href="#"><i class="fa fa-facebook fa-3x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter fa-3x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus fa-3x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-instagram fa-3x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="footer">
+            <div class="footer-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p class="footer-text" >Copyright <span class="copyright"> &copy;</span>2024 Drivechain Dynamics</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="footer-text">Gas-Powered Bikes &amp; Electric Conversions</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="footer-text">Website by <a href="https://ninjatechhq.com" target="_blank" style="color: #FFD700; font-weight: bold; text-decoration: none;">NinjaTech HQ</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="loading-overlay">
+       <div class="sk-cube-grid">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+       </div>
+       </section>
+       
+       
+       
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/jquery.counterup.min.js"></script>
+        <script src="js/jquery.waypoints.min.js"></script>
+        <script src="js/jquery.nicescroll.min.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/drivechain.js"></script>
+        <script>new WOW().init();</script>
+    </body>
+</html>

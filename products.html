@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Drivechain Dynamics</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Josefin+Sans:400,600,700" rel="stylesheet">
+    
+    <style>
+        /* Right-side navigation styling */
+        .navbar-fixed-top {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: auto;
+            width: auto;
+            background: rgba(42, 42, 42, 0.95);
+            border: none;
+            border-radius: 0 0 0 15px;
+            box-shadow: -5px 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .navbar-nav {
+            margin: 0;
+            padding: 10px 20px;
+        }
+        
+        .navbar-nav > li {
+            display: block;
+            margin: 5px 0;
+        }
+        
+        .navbar-nav > li > a {
+            color: #FFD700 !important;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: block;
+        }
+        
+        .navbar-nav > li > a:hover {
+            background: rgba(255, 215, 0, 0.2);
+            color: #FFF700 !important;
+        }
+        
+        .navbar-toggle {
+            border-color: #FFD700;
+            margin-right: 15px;
+        }
+        
+        .navbar-toggle .icon-bar {
+            background-color: #FFD700;
+        }
+        
+        /* Mobile Optimization */
+        @media (max-width: 767px) {
+            .navbar-fixed-top {
+                position: fixed;
+                top: 0;
+                right: 0;
+                left: auto;
+                width: 200px;
+                z-index: 9999;
+            }
+            
+            .navbar-nav > li > a {
+                padding: 12px 10px;
+                font-size: 14px;
+            }
+            
+            /* Header section mobile */
+            .header-section {
+                padding: 100px 0 40px !important;
+            }
+            
+            .header-section h1 {
+                font-size: 2rem !important;
+                margin-bottom: 15px !important;
+            }
+            
+            .header-section p {
+                font-size: 16px !important;
+            }
+            
+            /* Products grid mobile */
+            .products-grid {
+                padding: 40px 0 !important;
+            }
+            
+            .product-card {
+                margin-bottom: 25px !important;
+                padding: 20px !important;
+            }
+            
+            .product-card h3 {
+                font-size: 1.4rem !important;
+            }
+            
+            .product-card h4 {
+                font-size: 1.1rem !important;
+                margin-bottom: 15px !important;
+            }
+            
+            .price {
+                font-size: 2rem !important;
+                margin: 15px 0 !important;
+            }
+            
+            .features li {
+                font-size: 14px !important;
+                margin: 8px 0 !important;
+            }
+            
+            .btn {
+                padding: 12px !important;
+                font-size: 14px !important;
+                min-height: 44px;
+            }
+            
+            /* Container spacing */
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            /* Back button mobile */
+            .btn-lg {
+                padding: 12px 25px !important;
+                font-size: 16px !important;
+            }
+            
+            /* Footer mobile */
+            .footer-text {
+                font-size: 12px !important;
+                text-align: center !important;
+                margin-bottom: 10px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Extra small mobile devices */
+            .navbar-fixed-top {
+                width: 180px;
+            }
+            
+            .navbar-nav > li > a {
+                padding: 10px 8px;
+                font-size: 12px;
+            }
+            
+            .header-section {
+                padding: 90px 0 30px !important;
+            }
+            
+            .header-section h1 {
+                font-size: 1.8rem !important;
+            }
+            
+            .product-card {
+                padding: 15px !important;
+            }
+            
+            .product-card h3 {
+                font-size: 1.2rem !important;
+            }
+            
+            .price {
+                font-size: 1.8rem !important;
+            }
+            
+            .features li {
+                font-size: 13px !important;
+            }
+        }
+        
+        /* Touch targets optimization */
+        @media (pointer: coarse) {
+            .navbar-nav > li > a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .btn, button, a {
+                min-height: 44px;
+                padding: 12px 20px;
+            }
+        }
+        
+        /* Prevent horizontal scroll */
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Improve text readability on mobile */
+        @media (max-width: 767px) {
+            body {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+            
+            p {
+                font-size: 16px !important;
+            }
+        }
+    </style>
+</head>
+<body style="background: #2a2a2a;">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#loso-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <span style="color: #FFD700; font-weight: bold;">Drivechain Dynamics</span>
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="loso-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html#HOME" class="nav-item">HOME</a></li>
+                    <li><a href="index.html#about" class="nav-item">ABOUT</a></li>
+                    <li><a href="index.html#products" class="nav-item">OVERVIEW</a></li>
+                    <li><a href="#" class="nav-item" style="color: #FFD700;">PRODUCTS</a></li>
+                    <li><a href="index.html#byob" class="nav-item">B.Y.O.B</a></li>
+                    <li><a href="index.html#services" class="nav-item">SERVICES</a></li>
+                    <li><a href="index.html#contact-us" class="nav-item">CONTACT</a></li>
+                    <li><a href="legal.html" class="nav-item">LEGAL</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="header-section" style="background: #2a2a2a; padding: 120px 0 60px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 style="color: #FFD700; font-weight: bold; margin-bottom: 20px;">Our Bike Collection</h1>
+                    <p style="color: #FFD700; font-size: 18px;">Complete Motorized Bikes & Custom Configurations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-grid" style="padding: 60px 0; background: #2a2a2a;">
+        <div class="container">
+            <div class="row">
+                
+                <!-- 80cc Basic -->
+                <div class="col-md-4 col-sm-6 wow bounceInLeft">
+                    <div class="product-card" style="margin-bottom: 30px; background: #333; border: 2px solid #FFD700;">
+                        <div class="product-icon" style="text-align: center; padding: 20px;">
+                            <i class="fa fa-fire fa-4x" style="color: #FFD700;"></i>
+                        </div>
+                        <h3 style="color: #FFD700; text-align: center;">80cc Basic</h3>
+                        <h4 style="color: #FFD700; text-align: center; font-weight: normal;">Gas Engine - Entry Level</h4>
+                        <div class="price-tag" style="text-align: center; margin: 20px 0;">
+                            <span class="price" style="color: #FFD700; font-size: 28px; font-weight: bold;">$899</span>
+                        </div>
+                        <ul class="features" style="list-style: none; padding: 0 20px;">
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 80cc 2-Stroke Engine</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 200 Mile Range</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> Standard 1.5L Tank</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> Basic Installation</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 6-month Warranty</li>
+                        </ul>
+                        <div style="padding: 20px; text-align: center;">
+                            <a href="payment.html?bike=80cc-basic" class="btn btn-primary" style="background: #FFD700; color: #2a2a2a; border: none; width: 100%; text-decoration: none; display: block; padding: 12px;">Select Configuration</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 80cc Premium -->
+                <div class="col-md-4 col-sm-6 wow bounceInUp">
+                    <div class="product-card" style="margin-bottom: 30px; background: #333; border: 2px solid #FFD700;">
+                        <div class="product-icon" style="text-align: center; padding: 20px;">
+                            <i class="fa fa-fire fa-4x" style="color: #FFD700;"></i>
+                        </div>
+                        <h3 style="color: #FFD700; text-align: center;">80cc Premium</h3>
+                        <h4 style="color: #FFD700; text-align: center; font-weight: normal;">Gas Engine - Enhanced</h4>
+                        <div class="price-tag" style="text-align: center; margin: 20px 0;">
+                            <span class="price" style="color: #FFD700; font-size: 28px; font-weight: bold;">$1,199</span>
+                        </div>
+                        <ul class="features" style="list-style: none; padding: 0 20px;">
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 80cc 2-Stroke Engine</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 200 Mile Range</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> Large 2.4L Tank</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> Premium Installation</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 1-year Warranty</li>
+                        </ul>
+                        <div style="padding: 20px; text-align: center;">
+                            <a href="payment.html?bike=80cc-premium" class="btn btn-primary" style="background: #FFD700; color: #2a2a2a; border: none; width: 100%; text-decoration: none; display: block; padding: 12px;">Select Configuration</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 100cc Standard -->
+                <div class="col-md-4 col-sm-6 wow bounceInRight">
+                    <div class="product-card featured" style="margin-bottom: 30px; background: #333; border: 2px solid #FFD700; position: relative;">
+                        <div style="position: absolute; top: -10px; right: 10px; background: #FFD700; color: #2a2a2a; padding: 5px 15px; border-radius: 15px; font-weight: bold; font-size: 12px;">POPULAR</div>
+                        <div class="product-icon" style="text-align: center; padding: 20px;">
+                            <i class="fa fa-tachometer fa-4x" style="color: #FFD700;"></i>
+                        </div>
+                        <h3 style="color: #FFD700; text-align: center;">100cc Standard</h3>
+                        <h4 style="color: #FFD700; text-align: center; font-weight: normal;">Gas Engine - High Performance</h4>
+                        <div class="price-tag" style="text-align: center; margin: 20px 0;">
+                            <span class="price" style="color: #FFD700; font-size: 28px; font-weight: bold;">$1,599</span>
+                        </div>
+                        <ul class="features" style="list-style: none; padding: 0 20px;">
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 100cc 2-Stroke Engine</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 450 Mile Range</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> Large 2.4L Tank</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> Premium Installation</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 1-year Warranty</li>
+                        </ul>
+                        <div style="padding: 20px; text-align: center;">
+                            <a href="payment.html?bike=100cc-standard" class="btn btn-primary" style="background: #FFD700; color: #2a2a2a; border: none; width: 100%; text-decoration: none; display: block; padding: 12px;">Select Configuration</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 100cc Maximum -->
+                <div class="col-md-4 col-sm-6 wow bounceInLeft">
+                    <div class="product-card" style="margin-bottom: 30px; background: #333; border: 2px solid #FFD700;">
+                        <div class="product-icon" style="text-align: center; padding: 20px;">
+                            <i class="fa fa-tachometer fa-4x" style="color: #FFD700;"></i>
+                        </div>
+                        <h3 style="color: #FFD700; text-align: center;">100cc Maximum</h3>
+                        <h4 style="color: #FFD700; text-align: center; font-weight: normal;">Gas Engine - Ultimate Power</h4>
+                        <div class="price-tag" style="text-align: center; margin: 20px 0;">
+                            <span class="price" style="color: #FFD700; font-size: 28px; font-weight: bold;">$1,899</span>
+                        </div>
+                        <ul class="features" style="list-style: none; padding: 0 20px;">
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 100cc 2-Stroke Engine</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 450 Mile Range</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> Premium 3.0L Tank</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> Premium Installation</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 2-year Warranty</li>
+                        </ul>
+                        <div style="padding: 20px; text-align: center;">
+                            <a href="payment.html?bike=100cc-maximum" class="btn btn-primary" style="background: #FFD700; color: #2a2a2a; border: none; width: 100%; text-decoration: none; display: block; padding: 12px;">Select Configuration</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 250W Electric Basic -->
+                <div class="col-md-4 col-sm-6 wow bounceInUp">
+                    <div class="product-card" style="margin-bottom: 30px; background: #333; border: 2px solid #FFD700;">
+                        <div class="product-icon" style="text-align: center; padding: 20px;">
+                            <i class="fa fa-bolt fa-4x" style="color: #FFD700;"></i>
+                        </div>
+                        <h3 style="color: #FFD700; text-align: center;">250W Electric Basic</h3>
+                        <h4 style="color: #FFD700; text-align: center; font-weight: normal;">Electric Motor - Eco-Friendly</h4>
+                        <div class="price-tag" style="text-align: center; margin: 20px 0;">
+                            <span class="price" style="color: #FFD700; font-size: 28px; font-weight: bold;">$1,299</span>
+                        </div>
+                        <ul class="features" style="list-style: none; padding: 0 20px;">
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 250W Electric Motor</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 200 Mile Range</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> Standard Battery</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> Basic Installation</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 1-year Warranty</li>
+                        </ul>
+                        <div style="padding: 20px; text-align: center;">
+                            <a href="payment.html?bike=250w-basic" class="btn btn-primary" style="background: #FFD700; color: #2a2a2a; border: none; width: 100%; text-decoration: none; display: block; padding: 12px;">Select Configuration</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 250W Electric Premium -->
+                <div class="col-md-4 col-sm-6 wow bounceInRight">
+                    <div class="product-card" style="margin-bottom: 30px; background: #333; border: 2px solid #FFD700;">
+                        <div class="product-icon" style="text-align: center; padding: 20px;">
+                            <i class="fa fa-bolt fa-4x" style="color: #FFD700;"></i>
+                        </div>
+                        <h3 style="color: #FFD700; text-align: center;">250W Electric Premium</h3>
+                        <h4 style="color: #FFD700; text-align: center; font-weight: normal;">Electric Motor - Advanced</h4>
+                        <div class="price-tag" style="text-align: center; margin: 20px 0;">
+                            <span class="price" style="color: #FFD700; font-size: 28px; font-weight: bold;">$1,599</span>
+                        </div>
+                        <ul class="features" style="list-style: none; padding: 0 20px;">
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 250W Electric Motor</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 200 Mile Range</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> Extended Battery</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> Premium Installation</li>
+                            <li style="color: #FFD700; margin: 10px 0;"><i class="fa fa-check" style="margin-right: 10px;"></i> 2-year Warranty</li>
+                        </ul>
+                        <div style="padding: 20px; text-align: center;">
+                            <a href="payment.html?bike=250w-premium" class="btn btn-primary" style="background: #FFD700; color: #2a2a2a; border: none; width: 100%; text-decoration: none; display: block; padding: 12px;">Select Configuration</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Back Button -->
+            <div class="row" style="margin-top: 40px;">
+                <div class="col-md-12 text-center">
+                    <a href="index.html" class="btn btn-lg" style="background: #FFD700; color: #2a2a2a; border: none; padding: 15px 30px;">
+                        <i class="fa fa-arrow-left" style="margin-right: 10px;"></i>Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section id="footer">
+        <div class="footer-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p class="footer-text">Copyright <span class="copyright">&copy;</span>2024 Drivechain Dynamics</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="footer-text">Gas-Powered Bikes & Electric Conversions</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="footer-text">Website by <a href="https://ninjatechhq.com" target="_blank" style="color: #FFD700; text-decoration: none;">NinjaTech HQ</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+</html>
